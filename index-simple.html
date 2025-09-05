@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sierre Tennis de Table - 5ème Ligue 2025/26</title>
+    
+    <!-- Services simples -->
+    <script src="/src/simple-storage.js"></script>
+    <script src="/src/api-service-simple.js"></script>
+    
+    <!-- Application -->
+    <script type="module" crossorigin src="/assets/index-modified.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DRa24LH7.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script>
+      // Initialiser le service API simple
+      window.Be = new ApiServiceSimple();
+      
+      // Message de démarrage
+      console.log('🏓 Site de tennis de Sierre avec stockage simple initialisé');
+      console.log('📱 Configuration requise : clé API JSONBin.io (gratuite)');
+      
+      // Afficher le statut de configuration
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const status = window.Be.getConfigurationStatus();
+          if (!status.configured) {
+            console.warn('⚠️ CONFIGURATION REQUISE:');
+            console.warn('1. Allez sur https://jsonbin.io');
+            console.warn('2. Cliquez sur "Get API Key"');
+            console.warn('3. Entrez votre email et copiez la clé');
+            console.warn('4. Remplacez YOUR_API_KEY_HERE dans src/simple-storage.js');
+            console.warn('5. Redéployez sur Netlify');
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
+

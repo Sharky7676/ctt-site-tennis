@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sierre Tennis de Table - 5ème Ligue 2025/26</title>
+    
+    <!-- Charger les services de stockage JSONBin (version demo) -->
+    <script src="/src/jsonbin-storage-demo.js"></script>
+    <script src="/src/jsonbin-api-service.js"></script>
+    
+    <!-- Charger l'application React -->
+    <script type="module" crossorigin src="/assets/index-modified.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DRa24LH7.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script>
+      // Configuration pour utiliser JsonBinApiService en mode demo
+      document.addEventListener('DOMContentLoaded', function() {
+        // Remplacer le service API par défaut par JsonBinApiService
+        if (window.JsonBinApiService) {
+          window.ApiService = JsonBinApiService;
+          console.log('✅ JsonBinApiService configuré comme service principal (mode DEMO)');
+        } else {
+          console.error('❌ JsonBinApiService non disponible');
+        }
+      });
+    </script>
+  </body>
+</html>
+

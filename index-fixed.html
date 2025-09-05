@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sierre Tennis de Table - 5ème Ligue 2025/26</title>
+    
+    <!-- Charger d'abord les services de stockage JSONBin -->
+    <script src="/src/jsonbin-storage-demo.js"></script>
+    <script src="/src/jsonbin-api-service.js"></script>
+    
+    <!-- Puis charger l'application React -->
+    <script type="module" crossorigin src="/assets/index-modified.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DRa24LH7.css">
+    
+    <script>
+      // Remplacer le service API avant le chargement de React
+      window.ApiService = window.JsonBinApiService || window.ApiService;
+      
+      // Configuration globale pour JSONBin
+      window.JSONBIN_ENABLED = true;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script>
+      // S'assurer que le service est bien configuré après le chargement
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🔧 Configuration du service API...');
+        
+        if (window.JsonBinApiService) {
+          window.ApiService = window.JsonBinApiService;
+          console.log('✅ JsonBinApiService configuré comme service principal');
+        } else {
+          console.warn('⚠️ JsonBinApiService non disponible, utilisation du service par défaut');
+        }
+        
+        // Forcer le rechargement de l'application si nécessaire
+        setTimeout(() => {
+          if (!document.querySelector('#root').innerHTML.trim()) {
+            console.log('🔄 Rechargement de l\'application...');
+            location.reload();
+          }
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
+
